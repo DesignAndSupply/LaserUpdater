@@ -38,6 +38,7 @@
             this.runStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.sendPrintRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoors)).BeginInit();
             this.grpView.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -115,7 +116,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runStockToolStripMenuItem});
+            this.runStockToolStripMenuItem,
+            this.sendPrintRequestToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(982, 24);
@@ -149,6 +151,12 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // sendPrintRequestToolStripMenuItem
+            // 
+            this.sendPrintRequestToolStripMenuItem.Name = "sendPrintRequestToolStripMenuItem";
+            this.sendPrintRequestToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.sendPrintRequestToolStripMenuItem.Text = "Send Print Request";
             // 
             // frmMainMenu
             // 
@@ -191,5 +199,6 @@
         private System.Windows.Forms.ToolStripMenuItem runStockToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ToolStripMenuItem sendPrintRequestToolStripMenuItem;
     }
 }
