@@ -28,7 +28,7 @@ namespace LaserUI
             InitializeComponent();
             _doorID = doorID;
             _UpdateDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 00:00:00.000"));
-            dg.CellClick += dg_CellClick;
+            //dg.CellClick += dg_CellClick;
             fillGrid();
 
             dg.Columns["id"].Visible = false;
@@ -101,6 +101,7 @@ namespace LaserUI
             double hourTA=0;
             double minuteTA=0;
             string part = "";
+            string status = "";
             
 
 
@@ -116,13 +117,16 @@ namespace LaserUI
                 hourTA = Convert.ToDouble(selectedRow.Cells["hours_to_add"].Value);
                 minuteTA = Convert.ToDouble(selectedRow.Cells["minutes_to_add"].Value);
                 part = selectedRow.Cells["part_description"].Value.ToString();
-
+                status = selectedRow.Cells["partComplete"].Value.ToString();
             }
 
-            if(cmbStaff.SelectedIndex != -1)
+
+            if (e.ColumnIndex == dg.Columns["Complete"].Index)
             {
-                if (e.ColumnIndex == dg.Columns["Complete"].Index)
+
+                if (cmbStaff.SelectedIndex != -1 && status == "Incomplete")
                 {
+
 
                     DialogResult result;
                     result = MessageBox.Show("Are you sure you wish to mark this part as complete? This cannot be undone!", "Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -158,7 +162,7 @@ namespace LaserUI
                         cmdLog.CommandText = "INSERT INTO dbo.door_part_completion_log(staff_id,door_id,part_complete_date,time_for_part,part,part_status,op) " +
                                              "VALUES (@staffID,@doorID,@partCompleteDate,@timeForPart,@part,'Complete','Laser');";
 
-                        cmdLog.Parameters.AddWithValue("@staffID", cmbStaff.Text);
+                        cmdLog.Parameters.AddWithValue("@staffID", cmbStaff.SelectedValue);
                         cmdLog.Parameters.AddWithValue("@doorID", _doorID);
                         cmdLog.Parameters.AddWithValue("@partCompleteDate", DateTime.Now);
                         cmdLog.Parameters.AddWithValue("@timeForPart", minuteTA);
@@ -170,18 +174,23 @@ namespace LaserUI
 
                         checkComplete();
                         check100();
-
+                        fillGrid();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Please select a staff member and check that the part isn't already complete!", "Review selections", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+            }
+
+                
             
+     
 
-                fillGrid();
-            }
-            else
-            {
-                MessageBox.Show("Please select a staff member before marking a part as complete", "Select staff", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+
+
         }
 
 
@@ -190,6 +199,9 @@ namespace LaserUI
         {
             SqlConnection conn = new SqlConnection(SqlStatements.ConnectionString);
             conn.Open();
+
+            bool sec100 = false;
+
 
             //UPDATES THE LASER PART
             SqlCommand cmd = new SqlCommand();
@@ -203,15 +215,22 @@ namespace LaserUI
             {
                 if (Convert.ToDecimal(rdr["percentage_laser"]) > 1)
                 {
-                    SqlCommand cmdWrite = new SqlCommand();
-                    cmdWrite.Connection = conn;
-                    cmdWrite.CommandText = "UPDATE dbo.daily_department_goal set time_100_percent_laser = @now WHERE date_goal = @date;";
-                    cmd.Parameters.AddWithValue("@now", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@date", _UpdateDate);
-
-                    cmd.ExecuteNonQuery();
+                    sec100 = true;
                 }
             }
+
+            if (sec100 == true)
+            {
+                SqlCommand cmdWrite = new SqlCommand();
+                cmdWrite.Connection = conn;
+                cmdWrite.CommandText = "UPDATE dbo.daily_department_goal set time_100_percent_laser = @now WHERE date_goal = @date;";
+                cmd.Parameters.AddWithValue("@now", DateTime.Now);
+                cmd.Parameters.AddWithValue("@date", _UpdateDate);
+
+                cmd.ExecuteNonQuery();
+            }
+
+
 
             conn.Close();
 
@@ -222,27 +241,38 @@ namespace LaserUI
             SqlConnection conn = new SqlConnection(SqlStatements.ConnectionString);
             conn.Open();
 
+            bool doorComp = false;
+
             //UPDATES THE LASER PART
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
             cmd.CommandText = "SELECT * FROM dbo.door_program_laser_parts WHERE door_id=@doorID and (part_complete=0 or part_complete is null);";
+            cmd.Parameters.AddWithValue("@doorID", _doorID);
+
 
             SqlDataReader rdr = cmd.ExecuteReader();
 
 
             if (rdr.Read())
             {
-
+                doorComp = false;
             }
             else
+            {
+                doorComp = true;
+              
+            }
+
+
+
+            if (doorComp== true)
             {
                 SqlCommand cmdWrite = new SqlCommand();
                 cmdWrite.Connection = conn;
                 cmdWrite.CommandText = "UPDATE dbo.door set complete_laser = -1 where id =@doorID";
                 cmdWrite.Parameters.AddWithValue("@doorID", _doorID);
-                cmd.ExecuteNonQuery();
-              
+                cmdWrite.ExecuteNonQuery();
             }
 
             conn.Close();
@@ -250,7 +280,14 @@ namespace LaserUI
            
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+     
+        }
 
+        private void cmbStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

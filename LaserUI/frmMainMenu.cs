@@ -155,6 +155,28 @@ namespace LaserUI
               
                 fillGrid();
             }
+
+            if (e.ColumnIndex == dgvDoors.Columns["Add Note"].Index)
+            {
+                frmNotes frmN = new frmNotes(doorID);
+
+                frmN.ShowDialog();
+
+                fillGrid();
+            }
+
+        }
+
+        private void sendPrintRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrintList frmPL = new frmPrintList();
+            frmPL.ShowDialog();
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmlaserLateReport frmR = new FrmlaserLateReport();
+            frmR.ShowDialog();
         }
     }
 }

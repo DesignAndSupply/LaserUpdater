@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.dg = new System.Windows.Forms.DataGridView();
             this.cmbStaff = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.user_infoDataSet = new LaserUI.user_infoDataSet();
             this.cviewlaserstaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.user_infoDataSet = new LaserUI.user_infoDataSet();
+            this.label1 = new System.Windows.Forms.Label();
             this.c_view_laser_staffTableAdapter = new LaserUI.user_infoDataSetTableAdapters.c_view_laser_staffTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cviewlaserstaffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dg
@@ -54,6 +54,7 @@
             this.dg.RowHeadersVisible = false;
             this.dg.Size = new System.Drawing.Size(458, 326);
             this.dg.TabIndex = 0;
+            this.dg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_CellClick);
             // 
             // cmbStaff
             // 
@@ -66,6 +67,18 @@
             this.cmbStaff.Name = "cmbStaff";
             this.cmbStaff.Size = new System.Drawing.Size(191, 21);
             this.cmbStaff.TabIndex = 1;
+            this.cmbStaff.ValueMember = "id";
+            this.cmbStaff.SelectedIndexChanged += new System.EventHandler(this.cmbStaff_SelectedIndexChanged);
+            // 
+            // cviewlaserstaffBindingSource
+            // 
+            this.cviewlaserstaffBindingSource.DataMember = "c_view_laser_staff";
+            this.cviewlaserstaffBindingSource.DataSource = this.user_infoDataSet;
+            // 
+            // user_infoDataSet
+            // 
+            this.user_infoDataSet.DataSetName = "user_infoDataSet";
+            this.user_infoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -75,16 +88,6 @@
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Select Staff";
-            // 
-            // user_infoDataSet
-            // 
-            this.user_infoDataSet.DataSetName = "user_infoDataSet";
-            this.user_infoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cviewlaserstaffBindingSource
-            // 
-            this.cviewlaserstaffBindingSource.DataMember = "c_view_laser_staff";
-            this.cviewlaserstaffBindingSource.DataSource = this.user_infoDataSet;
             // 
             // c_view_laser_staffTableAdapter
             // 
@@ -105,8 +108,8 @@
             this.Text = "Update Door Parts";
             this.Load += new System.EventHandler(this.frmUpdateParts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cviewlaserstaffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
