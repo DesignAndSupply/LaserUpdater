@@ -20,6 +20,7 @@ namespace LaserUI
         public frmMainMenu()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             dgvDoors.CellClick += dgvDoors_CellClick;
 
             fillGrid();

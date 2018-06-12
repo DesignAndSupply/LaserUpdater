@@ -218,14 +218,16 @@ namespace LaserUI
                     sec100 = true;
                 }
             }
-
+            rdr.Close();
+            conn.Close();
+            conn.Open();
             if (sec100 == true)
             {
                 SqlCommand cmdWrite = new SqlCommand();
                 cmdWrite.Connection = conn;
                 cmdWrite.CommandText = "UPDATE dbo.daily_department_goal set time_100_percent_laser = @now WHERE date_goal = @date;";
-                cmd.Parameters.AddWithValue("@now", DateTime.Now);
-                cmd.Parameters.AddWithValue("@date", _UpdateDate);
+                cmdWrite.Parameters.AddWithValue("@now", DateTime.Now);
+                cmdWrite.Parameters.AddWithValue("@date", _UpdateDate);
 
                 cmd.ExecuteNonQuery();
             }
@@ -264,7 +266,9 @@ namespace LaserUI
               
             }
 
-
+            rdr.Close();
+            conn.Close();
+            conn.Open();
 
             if (doorComp== true)
             {

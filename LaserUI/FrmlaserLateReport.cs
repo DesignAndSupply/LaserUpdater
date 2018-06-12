@@ -18,6 +18,7 @@ namespace LaserUI
         public FrmlaserLateReport()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             Fill_data();
         }
         void Fill_data()
