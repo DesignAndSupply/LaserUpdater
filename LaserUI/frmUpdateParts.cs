@@ -18,11 +18,6 @@ namespace LaserUI
         private DateTime _UpdateDate{ get; set;}
 
 
-
-       
-
-
-
         public frmUpdateParts(int doorID)
         {
             InitializeComponent();

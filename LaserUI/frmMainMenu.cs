@@ -179,5 +179,17 @@ namespace LaserUI
             FrmlaserLateReport frmR = new FrmlaserLateReport();
             frmR.ShowDialog();
         }
+
+        private void runStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRunStock frm = new frmRunStock();
+            frm.ShowDialog();
+        }
+
+        private void missingDoorLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMissingLaserLog frm = new frmMissingLaserLog();
+            frm.ShowDialog();
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.missingDoorLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoors)).BeginInit();
             this.grpView.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -119,7 +120,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.runStockToolStripMenuItem,
             this.sendPrintRequestToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.missingDoorLogToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(982, 24);
@@ -131,6 +133,7 @@
             this.runStockToolStripMenuItem.Name = "runStockToolStripMenuItem";
             this.runStockToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.runStockToolStripMenuItem.Text = "Run Stock";
+            this.runStockToolStripMenuItem.Click += new System.EventHandler(this.runStockToolStripMenuItem_Click);
             // 
             // sendPrintRequestToolStripMenuItem
             // 
@@ -167,6 +170,13 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // missingDoorLogToolStripMenuItem
+            // 
+            this.missingDoorLogToolStripMenuItem.Name = "missingDoorLogToolStripMenuItem";
+            this.missingDoorLogToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.missingDoorLogToolStripMenuItem.Text = "Missing Door Log";
+            this.missingDoorLogToolStripMenuItem.Click += new System.EventHandler(this.missingDoorLogToolStripMenuItem_Click);
             // 
             // frmMainMenu
             // 
@@ -211,5 +221,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ToolStripMenuItem sendPrintRequestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem missingDoorLogToolStripMenuItem;
     }
 }

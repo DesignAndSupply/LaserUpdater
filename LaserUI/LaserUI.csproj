@@ -24,7 +24,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -103,6 +103,12 @@
     <Compile Include="frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMissingLaserLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMissingLaserLog.Designer.cs">
+      <DependentUpon>frmMissingLaserLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,11 +121,31 @@
     <Compile Include="frmPrintList.Designer.cs">
       <DependentUpon>frmPrintList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRunStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRunStock.Designer.cs">
+      <DependentUpon>frmRunStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockQuantity.Designer.cs">
+      <DependentUpon>frmStockQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdateParts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmUpdateParts.Designer.cs">
       <DependentUpon>frmUpdateParts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="order_databaseDataSet.cs">
+      <DependentUpon>order_databaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="order_databaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>order_databaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,11 +166,20 @@
     <EmbeddedResource Include="frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMissingLaserLog.resx">
+      <DependentUpon>frmMissingLaserLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNotes.resx">
       <DependentUpon>frmNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrintList.resx">
       <DependentUpon>frmPrintList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRunStock.resx">
+      <DependentUpon>frmRunStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockQuantity.resx">
+      <DependentUpon>frmStockQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateParts.resx">
       <DependentUpon>frmUpdateParts.cs</DependentUpon>
@@ -174,6 +209,17 @@
       <DependentUpon>DS_laser_late.xsd</DependentUpon>
     </None>
     <None Include="LaserUI_TemporaryKey.pfx" />
+    <None Include="order_databaseDataSet.xsc">
+      <DependentUpon>order_databaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="order_databaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>order_databaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="order_databaseDataSet.xss">
+      <DependentUpon>order_databaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
