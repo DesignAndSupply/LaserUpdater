@@ -38,21 +38,21 @@
             this.dg = new System.Windows.Forms.DataGridView();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.laser_partsTableAdapter = new LaserUI.order_databaseDataSetTableAdapters.laser_partsTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbStaff = new System.Windows.Forms.ComboBox();
+            this.cviewlaserstaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.user_infoDataSet = new LaserUI.user_infoDataSet();
+            this.c_view_laser_staffTableAdapter = new LaserUI.user_infoDataSetTableAdapters.c_view_laser_staffTableAdapter();
             this.PartID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.secondsPerPart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbStaff = new System.Windows.Forms.ComboBox();
-            this.user_infoDataSet = new LaserUI.user_infoDataSet();
-            this.cviewlaserstaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.c_view_laser_staffTableAdapter = new LaserUI.user_infoDataSetTableAdapters.c_view_laser_staffTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.laserpartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderdatabaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cviewlaserstaffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDoorID
@@ -127,26 +127,6 @@
             // 
             this.laser_partsTableAdapter.ClearBeforeFill = true;
             // 
-            // PartID
-            // 
-            this.PartID.HeaderText = "PartID";
-            this.PartID.Name = "PartID";
-            // 
-            // PartName
-            // 
-            this.PartName.HeaderText = "PartName";
-            this.PartName.Name = "PartName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // secondsPerPart
-            // 
-            this.secondsPerPart.HeaderText = "secondsPerPart";
-            this.secondsPerPart.Name = "secondsPerPart";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -167,19 +147,40 @@
             this.cmbStaff.TabIndex = 5;
             this.cmbStaff.ValueMember = "id";
             // 
-            // user_infoDataSet
-            // 
-            this.user_infoDataSet.DataSetName = "user_infoDataSet";
-            this.user_infoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cviewlaserstaffBindingSource
             // 
             this.cviewlaserstaffBindingSource.DataMember = "c_view_laser_staff";
             this.cviewlaserstaffBindingSource.DataSource = this.user_infoDataSet;
             // 
+            // user_infoDataSet
+            // 
+            this.user_infoDataSet.DataSetName = "user_infoDataSet";
+            this.user_infoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // c_view_laser_staffTableAdapter
             // 
             this.c_view_laser_staffTableAdapter.ClearBeforeFill = true;
+            // 
+            // PartID
+            // 
+            this.PartID.HeaderText = "PartID";
+            this.PartID.Name = "PartID";
+            // 
+            // PartName
+            // 
+            this.PartName.HeaderText = "PartName";
+            this.PartName.Name = "PartName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // secondsPerPart
+            // 
+            this.secondsPerPart.HeaderText = "secondsPerPart";
+            this.secondsPerPart.Name = "secondsPerPart";
+            this.secondsPerPart.Visible = false;
             // 
             // frmMissingLaserLog
             // 
@@ -202,8 +203,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderdatabaseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cviewlaserstaffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_infoDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,14 +221,14 @@
         private order_databaseDataSet order_databaseDataSet;
         private System.Windows.Forms.BindingSource laserpartsBindingSource;
         private order_databaseDataSetTableAdapters.laser_partsTableAdapter laser_partsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secondsPerPart;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbStaff;
         private user_infoDataSet user_infoDataSet;
         private System.Windows.Forms.BindingSource cviewlaserstaffBindingSource;
         private user_infoDataSetTableAdapters.c_view_laser_staffTableAdapter c_view_laser_staffTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn secondsPerPart;
     }
 }
