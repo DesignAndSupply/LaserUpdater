@@ -38,9 +38,9 @@
             this.runStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendPrintRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.missingDoorLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClear = new System.Windows.Forms.Button();
-            this.missingDoorLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoors)).BeginInit();
             this.grpView.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -49,14 +49,21 @@
             // 
             // dgvDoors
             // 
+            this.dgvDoors.AllowUserToAddRows = false;
+            this.dgvDoors.AllowUserToDeleteRows = false;
+            this.dgvDoors.AllowUserToResizeColumns = false;
+            this.dgvDoors.AllowUserToResizeRows = false;
             this.dgvDoors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDoors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDoors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDoors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoors.Location = new System.Drawing.Point(13, 152);
             this.dgvDoors.Name = "dgvDoors";
+            this.dgvDoors.ReadOnly = true;
             this.dgvDoors.RowHeadersVisible = false;
+            this.dgvDoors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoors.Size = new System.Drawing.Size(957, 440);
             this.dgvDoors.TabIndex = 0;
             this.dgvDoors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoors_CellContentClick);
@@ -149,6 +156,13 @@
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
+            // missingDoorLogToolStripMenuItem
+            // 
+            this.missingDoorLogToolStripMenuItem.Name = "missingDoorLogToolStripMenuItem";
+            this.missingDoorLogToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.missingDoorLogToolStripMenuItem.Text = "Missing Door Log";
+            this.missingDoorLogToolStripMenuItem.Click += new System.EventHandler(this.missingDoorLogToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -170,13 +184,6 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // missingDoorLogToolStripMenuItem
-            // 
-            this.missingDoorLogToolStripMenuItem.Name = "missingDoorLogToolStripMenuItem";
-            this.missingDoorLogToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.missingDoorLogToolStripMenuItem.Text = "Missing Door Log";
-            this.missingDoorLogToolStripMenuItem.Click += new System.EventHandler(this.missingDoorLogToolStripMenuItem_Click);
             // 
             // frmMainMenu
             // 

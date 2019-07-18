@@ -36,7 +36,7 @@ namespace LaserUI
            
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT id,NAME, date_laser, door_type_description,quantity_same,lead_time, program_date,laser_program_date, date_weld, date_completion,fullname from c_view_laser_late_report  order by date_laser";
+            cmd.CommandText = "SELECT id,NAME, date_laser, door_type_description,quantity_same,lead_time, program_date,laser_program_date, date_weld, date_completion,fullname from c_view_laser_late_report  order by date_laser, id";
             //cmd.Parameters.AddWithValue("@date", DateTime.Now);
 
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
@@ -55,6 +55,11 @@ namespace LaserUI
 
             
 
+
+        }
+
+        private void FrmlaserLateReport_Load(object sender, EventArgs e)
+        {
 
         }
     }

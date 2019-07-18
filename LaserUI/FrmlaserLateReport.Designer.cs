@@ -52,6 +52,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "FrmlaserLateReport";
             this.Text = "FrmlaserLateReport";
+            this.Load += new System.EventHandler(this.FrmlaserLateReport_Load);
             this.ResumeLayout(false);
 
         }
