@@ -148,7 +148,6 @@ namespace LaserUI
             }
 
 
-
             if (e.ColumnIndex == dgvDoors.Columns["Update Door"].Index)
             {
                 frmUpdateParts frmUP = new frmUpdateParts(doorID);
@@ -190,6 +189,13 @@ namespace LaserUI
         {
             frmMissingLaserLog frm = new frmMissingLaserLog();
             frm.ShowDialog();
+        }
+
+        private void printOldSheetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPrintDocs frm = new frmPrintDocs();
+            frm.ShowDialog();
+
         }
     }
 }

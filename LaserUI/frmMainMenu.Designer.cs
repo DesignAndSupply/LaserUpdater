@@ -39,6 +39,7 @@
             this.sendPrintRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.missingDoorLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printOldSheetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoors)).BeginInit();
@@ -128,7 +129,8 @@
             this.runStockToolStripMenuItem,
             this.sendPrintRequestToolStripMenuItem,
             this.reportsToolStripMenuItem,
-            this.missingDoorLogToolStripMenuItem});
+            this.missingDoorLogToolStripMenuItem,
+            this.printOldSheetsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(982, 24);
@@ -162,6 +164,14 @@
             this.missingDoorLogToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
             this.missingDoorLogToolStripMenuItem.Text = "Missing Door Log";
             this.missingDoorLogToolStripMenuItem.Click += new System.EventHandler(this.missingDoorLogToolStripMenuItem_Click);
+            // 
+            // printOldSheetsToolStripMenuItem
+            // 
+            this.printOldSheetsToolStripMenuItem.Name = "printOldSheetsToolStripMenuItem";
+            this.printOldSheetsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.printOldSheetsToolStripMenuItem.Text = "Print Old Sheets";
+            this.printOldSheetsToolStripMenuItem.Visible = false;
+            this.printOldSheetsToolStripMenuItem.Click += new System.EventHandler(this.printOldSheetsToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -229,5 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem sendPrintRequestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem missingDoorLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printOldSheetsToolStripMenuItem;
     }
 }

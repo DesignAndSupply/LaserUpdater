@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using LaserLib;
 
+
 namespace LaserUI
 {
     public partial class frmUpdateParts : Form
@@ -70,11 +71,34 @@ namespace LaserUI
                 adap.Fill(dt);
                 dg.DataSource = dt;
 
+                //adding start/end time buttons
+                DataGridViewButtonColumn startButton = new DataGridViewButtonColumn();
+                startButton.Text = "Start Time";
+                startButton.Name = "Start Time";
+                startButton.UseColumnTextForButtonValue = true;
+                int startIndex = 7;
+
+                if (dg.Columns["Start Time"] == null)
+                {
+                    dg.Columns.Insert(startIndex, startButton);
+                }
+                
+                DataGridViewButtonColumn endButton = new DataGridViewButtonColumn();
+                endButton.Text = "End Time";
+                endButton.Name = "End Time";
+                endButton.UseColumnTextForButtonValue = true;
+                int endIndex = 8;
+
+                if (dg.Columns["End Time"] == null)
+                {
+                    dg.Columns.Insert(endIndex, endButton);
+                }
+
                 DataGridViewButtonColumn noteButton = new DataGridViewButtonColumn();
                 noteButton.Text = "Complete";
                 noteButton.Name = "Complete";
                 noteButton.UseColumnTextForButtonValue = true;
-                int columnIndex = 7;
+                int columnIndex = 9;
 
                 if (dg.Columns["Complete"] == null)
                 {
@@ -98,8 +122,6 @@ namespace LaserUI
             string part = "";
             string status = "";
             
-
-
 
             if (dg.SelectedCells.Count > 0)
             {
@@ -176,7 +198,42 @@ namespace LaserUI
                 {
                     MessageBox.Show("Please select a staff member and check that the part isn't already complete!", "Review selections", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+           
+            string sql = "";  //select * from dbo.door_program_laser_parts
+            if (e.ColumnIndex == dg.Columns["Start Time"].Index)
+            {
+                int selectedrowindex = dg.SelectedCells[0].RowIndex;
 
+                DataGridViewRow selectedRow = dg.Rows[selectedrowindex];
+                sql = "UPDATE dbo.door_program_laser_parts SET  start_time = GETDATE() WHERE id = " +  Convert.ToString(selectedRow.Cells["id"].Value); 
+                using (SqlConnection conn = new SqlConnection(SqlStatements.ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                        MessageBox.Show("Start Time Added");
+                    }
+                }
+            }
+
+            if (e.ColumnIndex == dg.Columns["End Time"].Index)
+            {
+                int selectedrowindex = dg.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dg.Rows[selectedrowindex];
+                sql = "UPDATE dbo.door_program_laser_parts SET  end_time = GETDATE() WHERE  id = " + Convert.ToString(selectedRow.Cells["id"].Value);
+                using (SqlConnection conn = new SqlConnection(SqlStatements.ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                        MessageBox.Show("End Time Added");
+                    }
+                }
             }
 
                 
