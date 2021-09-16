@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LaserLib;
-
-
-
+using System.Diagnostics;
 
 namespace LaserUI
 {
@@ -175,8 +173,11 @@ namespace LaserUI
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmlaserLateReport frmR = new FrmlaserLateReport();
-            frmR.ShowDialog();
+            //FrmlaserLateReport frmR = new FrmlaserLateReport();
+            //frmR.ShowDialog();
+            //open the report in access
+            Process.Start(@"\\DESIGNSVR1\apps\Design and Supply MS ACCESS\Frontend\ShopFloorUpdate\Laser\laser_report.mdb");
+
         }
 
         private void runStockToolStripMenuItem_Click(object sender, EventArgs e)
